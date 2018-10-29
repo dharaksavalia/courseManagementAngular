@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { AdminpageComponent } from './Component/adminpage.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RegisterationFormComponent } from './Component/registeration-form.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { RegisterationFormComponent } from './Component/registeration-form.compo
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
