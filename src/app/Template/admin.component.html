@@ -26,12 +26,12 @@
     </thead>
     <tbody>
     <tbody>
-    <tr>
-      <td>ada</td>
-      <td>&nbsp;</td>
-      <td >Ada</td>
-      <td >Lovelace</td>
-      <td >FACULTY</td>
+    <tr *ngFor="let user of users">
+      <td>{{user.username}}</td>
+      <td>{{user.firstName}}&nbsp;</td>
+      <td >{{user.lastName}}</td>
+      <td >{{user.email}}</td>
+      <td >{{user.role}}</td>
       <td class="">
         <span class="float-right">
           <i class="fa-2x fa fa-times"></i>
@@ -39,6 +39,5 @@
       </td>
     </tr>
     </tbody>
-
   </table>
 </div>

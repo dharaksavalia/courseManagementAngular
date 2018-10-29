@@ -13,7 +13,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
 
-  getUsers(): Observable<User> {
+  getUsers(): Observable<User[]> {
     return this.http.get(URL);
   }
 }
