@@ -14,6 +14,7 @@ export class AdminComponent implements OnInit {
   users: User[];
   errorLoading = false;
   errorDeleting = false;
+  enableNewUser = false;
   ngOnInit() {
     this.getAllUsers();
   }
@@ -39,5 +40,11 @@ export class AdminComponent implements OnInit {
           this.errorDeleting = true;
           console.log(error)}
       ,() => {console.log()});
+  }
+  enableNewUserForm() {
+    this.enableNewUser = true;
+  }
+  disableNewUserForm() {
+    this.enableNewUser = false;
   }
 }

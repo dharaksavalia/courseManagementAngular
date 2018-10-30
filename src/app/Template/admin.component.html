@@ -45,5 +45,11 @@
       </td>
     </tr>
     </tbody>
+    <tr>
+      <td colspan="6">
+        <button class="btn btn-secondary btn-block" (click)="enableNewUserForm()">Add New User</button>
+      </td>
+    </tr>
   </table>
+  <app-new-user *ngIf="enableNewUser"></app-new-user>
 </div>
