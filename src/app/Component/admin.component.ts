@@ -15,6 +15,7 @@ export class AdminComponent implements OnInit {
   error = false;
   enableNewUser = false;
   message: string;
+  btnMessage = 'Add New User';
   ngOnInit() {
     this.getAllUsers();
   }
@@ -44,11 +45,14 @@ export class AdminComponent implements OnInit {
           console.log(error)}
       ,() => {console.log('finished deleting')});
   }
-  enableNewUserForm() {
-    this.enableNewUser = true;
-  }
-  disableNewUserForm() {
-    this.enableNewUser = false;
+  enableDisableNewUserForm() {
+    if (this.enableNewUser) {
+      this.enableNewUser = false;
+      this.btnMessage = 'Add new user';
+    } else {
+      this.enableNewUser = true;
+      this.btnMessage = 'Disable Form';
+    }
   }
   registerUser(user: User) {
     this.userService.createUsers(user)
@@ -59,7 +63,7 @@ export class AdminComponent implements OnInit {
         },
         (error) => {
         this.error = true;
-        this.message = 'Not able to create new User'
+        this.message = 'Not able to create new User';
         console.log(error);
       });
   }
