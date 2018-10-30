@@ -19,7 +19,7 @@ export class NewUserComponent implements OnInit {
     role: ''
   }
   constructor() { }
-
+  userPattern = '^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$';
   ngOnInit() {
   }
   registerUser() {
