@@ -8,7 +8,7 @@ import {User} from 'src/app/Model/User';
 })
 export class NewUserComponent implements OnInit {
 
-  @Output('registerUser')
+  @Output('register')
   userEmit: EventEmitter<User> = new EventEmitter<User>();
   user: User = {
     username : '',

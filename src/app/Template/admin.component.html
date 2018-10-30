@@ -51,5 +51,5 @@
       </td>
     </tr>
   </table>
-  <app-new-user *ngIf="enableNewUser"></app-new-user>
+  <app-new-user *ngIf="enableNewUser" (register)="registerUser($event)" ></app-new-user>
 </div>
