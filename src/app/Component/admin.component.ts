@@ -48,7 +48,7 @@ export class AdminComponent implements OnInit {
     this.enableNewUser = false;
   }
   registerUser(user: User) {
-    this.enableNewUser = false;
+    this.disableNewUserForm();
     console.log(user);
   }
 }
