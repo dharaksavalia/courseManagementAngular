@@ -12,13 +12,32 @@ export class AdminComponent implements OnInit {
 
   constructor(private userService: UserService) { }
   users: User[];
-
+  errorLoading = false;
+  errorDeleting = false;
   ngOnInit() {
+    this.getAllUsers();
+  }
+  getAllUsers() {
     this.userService.getUsers()
-      .subscribe((response) => {this.users = response} ,
-        (error) => {console.log(error)} ,
-        () => {console.log("find")}
-        );
+      .subscribe((response) => {
+        this.errorLoading = false;
+        this.users = response} ,
+        (error) => {
+        this.errorLoading = true;
+        console.log(error)} ,
+        () => {console.log('find')}
+      );
   }
 
+  deleteUsers(userId: number) {
+    this.userService.deleteUsers(userId)
+      .subscribe(
+        (response) => {
+          this.errorDeleting = false;
+          this.users = this.users.filter(user => user.id !== userId);
+        },(error) => {
+          this.errorDeleting = true;
+          console.log(error)}
+      ,() => {console.log()});
+  }
 }

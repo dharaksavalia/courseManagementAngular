@@ -26,15 +26,21 @@
     </thead>
     <tbody>
     <tbody>
+  <tr *ngIf="errorLoading" class="alert alert-danger">
+    <td colspan="5">Error in Loading Users</td>
+  </tr>
+  <tr *ngIf="errorDeleting" class="alert alert-danger">
+    <td colspan="5">Error in Deleting Users</td>
+  </tr>
     <tr *ngFor="let user of users">
       <td>{{user.username}}</td>
       <td>{{user.firstName}}&nbsp;</td>
       <td >{{user.lastName}}</td>
       <td >{{user.email}}</td>
       <td >{{user.role}}</td>
-      <td class="">
+      <td>
         <span class="float-right">
-          <i class="fa-2x fa fa-times"></i>
+          <i (click)="deleteUsers(user.id)" class="fa-2x fa fa-times"></i>
         </span>
       </td>
     </tr>
