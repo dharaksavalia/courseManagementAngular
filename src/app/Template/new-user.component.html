@@ -1,15 +1,43 @@
-<form #heroForm="ngForm">
+<form (ngSubmit)="registerUser()" #userForm="ngForm">
   <div class="form-group row" >
     <label for="usernameFld" class="col-sm-2 col-form-label">Username</label>
-    <input type="text" class="col-sm-10 form-control" name="username" [(ngModel)]="user.username" id="usernameFld" placeholder="Alice">
+    <input type="text" minlength="4"  required #username="ngModel" class="col-sm-10 form-control" name="username" [(ngModel)]="user.username" id="usernameFld" placeholder="Alice">
+  </div>
+  <div *ngIf="username.invalid && (username.dirty || username.touched)"
+       class="alert alert-danger">
+    <div *ngIf="username.errors.required">
+      Username is required.
+    </div>
+    <div *ngIf="username.errors.minlength">
+      Username must be at least 4 characters long.
+    </div>
   </div>
   <div class="form-group row">
     <label for="passwordFld" class="col-sm-2 col-form-label">Password</label>
-    <input type="password" class="col-sm-10 form-control" name="password" [(ngModel)]="user.password" id="passwordFld" placeholder="Password">
+    <input type="password" minlength="4" required #password="ngModel" class="col-sm-10 form-control" name="password" [(ngModel)]="user.password" id="passwordFld" placeholder="Password">
+  </div>
+  <div *ngIf="password.invalid && (password.dirty || password.touched)"
+       class="alert alert-danger">
+    <div *ngIf="password.errors.required">
+      Password is required.
+    </div>
+    <div *ngIf="password.errors.minlength">
+      Password must be at least 4 characters long.
+    </div>
+
   </div>
   <div class="form-group row" >
     <label for="firstNameFld" class="col-sm-2 col-form-label">First Name</label>
-    <input type="text" class="col-sm-10 form-control" name="firstName" [(ngModel)]="user.firstName" id="firstNameFld" placeholder="Alice">
+    <input type="text" minlength="4" #firstName="ngModel" class="col-sm-10 form-control" name="firstName" [(ngModel)]="user.firstName" id="firstNameFld" placeholder="Alice">
+  </div>
+  <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+       class="alert alert-danger">
+    <div *ngIf="firstName.errors.required">
+      First Name is required
+    </div>
+    <div *ngIf="firstName.errors.minlength">
+      First Name must be at least 4 characters long.
+    </div>
   </div>
   <div class="form-group row" >
     <label for="lastNameFld" class="col-sm-2 col-form-label">Last Name</label>
@@ -17,8 +45,20 @@
   </div>
   <div class="form-group row" >
     <label for="emailFld" class="col-sm-2 col-form-label">Email</label>
-    <input type="text" class="col-sm-10 form-control" name="email" [(ngModel)]="user.email"id="emailFld" placeholder="Alice">
+    <input type="email"  required
+           #email="ngModel" email class="col-sm-10 form-control"
+           name="email" [(ngModel)]="user.email"id="emailFld" placeholder="Alice">
   </div>
+  <div *ngIf="email.invalid && (email.dirty || email.touched)"
+       class="alert alert-danger">
+    <div *ngIf="email.errors.required">
+      Email is required
+    </div>
+    <div *ngIf="email.errors.email">
+      Email must be of type joh@xyz.xyz
+    </div>
+  </div>
+
   <div class="form-group row" >
     <label for="emailFld" class="col-sm-2 col-form-label" >Role</label>
     <select name="role" [(ngModel)]="user.role" class="col-sm-10 form-control">
@@ -29,7 +69,7 @@
   </div>
   <div class="form-group row">
     <label class="col-sm-2 col-form-label"></label>
-    <button type="button" class="btn btn-secondary col-sm-10" (click)="registerUser()">Register</button>
+    <button type="submit" [disabled]="!userForm.form.valid"  class="btn btn-secondary col-sm-10">Register</button>
     <div class="col-sm-2"></div>
     <div class="row">
       <div class="col-6 ">
