@@ -12,20 +12,22 @@ export class AdminComponent implements OnInit {
 
   constructor(private userService: UserService) { }
   users: User[];
-  errorLoading = false;
-  errorDeleting = false;
+  error = false;
   enableNewUser = false;
+  message: string;
   ngOnInit() {
     this.getAllUsers();
   }
   getAllUsers() {
     this.userService.getUsers()
       .subscribe((response) => {
-        this.errorLoading = false;
-        this.users = response} ,
+        this.error = false;
+        this.users = response;
+        } ,
         (error) => {
-        this.errorLoading = true;
-        console.log(error)} ,
+        this.error = true;
+        console.log(error);
+        } ,
         () => {console.log('find')}
       );
   }
@@ -34,12 +36,13 @@ export class AdminComponent implements OnInit {
     this.userService.deleteUsers(userId)
       .subscribe(
         (response) => {
-          this.errorDeleting = false;
+          this.error = false;
           this.users = this.users.filter(user => user.id !== userId);
         },(error) => {
-          this.errorDeleting = true;
+          this.error = true;
+          this.message = 'Not able to deleted';
           console.log(error)}
-      ,() => {console.log()});
+      ,() => {console.log('finished deleting')});
   }
   enableNewUserForm() {
     this.enableNewUser = true;
@@ -48,7 +51,16 @@ export class AdminComponent implements OnInit {
     this.enableNewUser = false;
   }
   registerUser(user: User) {
-    this.disableNewUserForm();
-    console.log(user);
+    this.userService.createUsers(user)
+      .subscribe((response) => {
+        this.error = true;
+        this.message = 'Posted new Users';
+        this.users.push(response);
+        },
+        (error) => {
+        this.error = true;
+        this.message = 'Not able to create new User'
+        console.log(error);
+      });
   }
 }

@@ -26,11 +26,8 @@
     </thead>
     <tbody>
     <tbody>
-  <tr *ngIf="errorLoading" class="alert alert-danger">
-    <td colspan="5">Error in Loading Users</td>
-  </tr>
-  <tr *ngIf="errorDeleting" class="alert alert-danger">
-    <td colspan="5">Error in Deleting Users</td>
+  <tr *ngIf="error" class="alert alert-danger">
+    <td colspan="5">{{message}}</td>
   </tr>
     <tr *ngFor="let user of users">
       <td>{{user.username}}</td>
