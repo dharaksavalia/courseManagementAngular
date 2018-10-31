@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHandler, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {User} from '../Model/User';
+import {User} from '../model/User';
 
 const URL = 'https://webdev-mintex.herokuapp.com/api/user';
 const httpOptions = {

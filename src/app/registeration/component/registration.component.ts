@@ -1,6 +1,6 @@
 import {Component, DoCheck, OnChanges, OnInit, SimpleChange, SimpleChanges} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
-import {UserService} from '../../Service/user.service';
+import {UserService} from '../../service/user.service';
 
 @Component({
   selector: 'app-registration',

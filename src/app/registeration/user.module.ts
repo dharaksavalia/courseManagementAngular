@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegistrationComponent } from './component/registration.component';
 import { ReactiveFormsModule} from '@angular/forms';
-import {UserService} from '../Service/user.service';
+import {UserService} from '../service/user.service';
 
 
 @NgModule({
@@ -14,4 +14,4 @@ import {UserService} from '../Service/user.service';
   providers: [UserService],
   exports: [RegistrationComponent]
 })
-export class RegisterationModule { }
+export class UserModule { }

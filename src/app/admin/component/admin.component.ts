@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {UserService} from '../Service/user.service';
-import {User} from '../Model/User';
+import {UserService} from '../../service/user.service';
+import {User} from '../../model/User';
 
 @Component({
   selector: 'app-admin',
-  templateUrl: '../Template/admin.component.html',
-  styleUrls: ['../Style/adminpage.component.css']
+  templateUrl: '../template/admin.component.html',
+  styleUrls: ['../style/adminpage.component.css']
 })
 export class AdminComponent implements OnInit {
 

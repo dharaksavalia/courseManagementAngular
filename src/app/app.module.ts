@@ -2,26 +2,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { AdminComponent } from './Component/admin.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { NewUserComponent } from './Component/new-user.component';
 import {HttpClientModule} from '@angular/common/http';
-import {UserService} from './Service/user.service';
-import {FormsModule} from '@angular/forms';
-import {RegisterationModule} from './registeration/registeration.module';
+import {UserService} from './service/user.service';
+import {UserModule} from './registeration/user.module';
+import {AdminModule} from './admin/admin.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AdminComponent,
-    NewUserComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     HttpClientModule,
-    FormsModule,
-    RegisterationModule
+    UserModule,
+    AdminModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

@@ -1,10 +1,10 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {User} from 'src/app/Model/User';
+import {User} from 'src/app/model/User';
 
 @Component({
   selector: 'app-new-user',
-  templateUrl: '../Template/new-user.component.html',
-  styleUrls: ['../Style/new-user.component.css']
+  templateUrl: '../template/new-user.component.html',
+  styleUrls: ['../style/new-user.component.css']
 })
 export class NewUserComponent implements OnInit {
 
