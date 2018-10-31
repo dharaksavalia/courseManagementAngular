@@ -8,6 +8,7 @@ import { NewUserComponent } from './Component/new-user.component';
 import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './Service/user.service';
 import {FormsModule} from '@angular/forms';
+import {RegisterationModule} from './registeration/registeration.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RegisterationModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
