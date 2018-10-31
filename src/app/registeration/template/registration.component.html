@@ -3,39 +3,42 @@
   <form [formGroup]="profileForm">
     <div class="form-group row" >
       <label for="usernameFld" class="col-sm-2 col-form-label">Username</label>
-      <input type="text" formControlName="username" class="col-sm-10 form-control" id="usernameFld" placeholder="Alice">
+      <div class="col-10" >
+        <input type="text" formControlName="username" class=" form-control" id="usernameFld" placeholder="Alice">
+        <small *ngIf="username.dirty && username.invalid" class="col-10 alert-danger">Required only alphabet with characters, numbers with minimum lenth of 4 and maximum of 12</small>
+      </div>
     </div>
     <div class="form-group row">
       <label for="passwordFld" class="col-sm-2 col-form-label">Password</label>
       <input type="password" formControlName="password" class="col-sm-10 form-control" id="passwordFld" placeholder="Password">
     </div>
     <div class="form-group row">
-      <label for="verifyPasswordFld" class="col-sm-2 col-form-label">Verify Password</label>
-      <input type="password" class="col-sm-10 form-control" id="verifyPasswordFld" placeholder="Password">
+      <label for="verifyPasswordFld"  class="col-sm-2 col-form-label">Verify Password</label>
+      <input type="password" formControlName="verifyPassword" class="col-sm-10 form-control" id="verifyPasswordFld" placeholder="Password">
     </div>
     <div class="form-group row">
       <label for="firstNameFld" class="col-sm-2 col-form-label">First Name</label>
-      <input class="col-sm-10 form-control" id="firstNameFld" placeholder="First Name">
+      <input formControlName="firstName" class="col-sm-10  form-control" id="firstNameFld" placeholder="First Name">
     </div>
     <div class="form-group row">
       <label for="lastNameFld" class="col-sm-2 col-form-label">Last Name</label>
-      <input class="col-sm-10 form-control" id="lastNameFld" placeholder="Last Name">
+      <input formControlName="lastName" class="col-sm-10 form-control" id="lastNameFld" placeholder="Last Name">
     </div>
     <div class="form-group row">
       <label for="emailFld" class="col-sm-2 col-form-label">Email</label>
-      <input class="col-sm-10 form-control" id="emailFld" placeholder="john@doe.com">
+      <input formControlName="email" class="col-sm-10 form-control" id="emailFld" placeholder="john@doe.com">
     </div>
     <div class="form-group row">
       <label for="dateOfBirthFld" class="col-sm-2 col-form-label">Date of Birth</label>
-      <input type="date"class="col-sm-10 form-control"  id="dateOfBirthFld" placeholder="Last Name">
+      <input formControlName="dateOfBirth" type="date"class="col-sm-10 form-control"  id="dateOfBirthFld" placeholder="Last Name">
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label"></label>
-      <button type="button" id="registerBtn" class="btn btn-primary col-sm-10">Register</button>
+      <button type="submit"  id="registerBtn" (click)="registerUser()"[disabled]="!profileForm.valid" class="btn btn-primary col-sm-10">Register</button>
       <div class="col-sm-2"></div>
       <div class="row">
         <div class="col-6 webdev-login-redirect">
-          <a href="#">Login</a>
+          <a href="#"  >Login</a>
         </div>
       </div>
     </div>
