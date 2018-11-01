@@ -9,6 +9,8 @@ import {UserModule} from './registeration/user.module';
 import {AdminModule} from './admin/admin.module';
 import {MyRouteModule} from './router.module';
 import {HeaderModule} from './header/header.module';
+import {RouterModule} from '@angular/router';
+import {HomeModule} from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import {HeaderModule} from './header/header.module';
     UserModule,
     AdminModule,
     MyRouteModule,
-    HeaderModule
+    HeaderModule,
+    RouterModule,
+    HomeModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

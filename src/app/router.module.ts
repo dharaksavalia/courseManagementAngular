@@ -4,8 +4,13 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AdminComponent} from './admin/component/admin.component';
 import {RegistrationComponent} from './registeration/component/registration.component';
+import {AdminModule} from './admin/admin.module';
+import {UserModule} from './registeration/user.module';
+import {HomeModule} from './home/home.module';
+import {HomeComponent} from './home/home.component';
 
 const appRoutes: Routes = [
+  {path: 'home', component: HomeComponent},
   {path: 'admin', component: AdminComponent},
   {path: 'registeration', component: RegistrationComponent}
 ]
@@ -18,8 +23,9 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    AdminComponent,
-    RegistrationComponent
+    AdminModule,
+    UserModule,
+    HomeModule
   ],
   providers: [],
 })
