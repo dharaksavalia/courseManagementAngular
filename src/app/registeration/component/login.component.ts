@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../service/user.service';
-import {User} from '../../model/User';
 import {FormBuilder, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +11,10 @@ import {FormBuilder, Validators} from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   constructor(private userService: UserService,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder, private  router: Router) { }
   user = this.fb.group({
-    username: ['', [Validators.required]],
-    password: ['', [Validators.required]]
+    username: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9]{4,12}$')]],
+    password: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9]{4,12}$')]]
   });
   get username() {
     return this.user.get('username');
@@ -29,6 +29,9 @@ export class LoginComponent implements OnInit {
       .subscribe(this.navigateAdmin,(error) => console.log());
   }
   navigateAdmin(user) {
-    console.log(user);
+    sessionStorage.setItem('user', user);
+    this.router.navigate(['home']);
   }
+
+
 }

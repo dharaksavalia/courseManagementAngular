@@ -8,11 +8,13 @@ import {AdminModule} from './admin/admin.module';
 import {UserModule} from './registeration/user.module';
 import {HomeModule} from './home/home.module';
 import {HomeComponent} from './home/home.component';
+import {LoginComponent} from './registeration/component/login.component';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'admin', component: AdminComponent},
-  {path: 'registeration', component: RegistrationComponent}
+  {path: 'registeration', component: RegistrationComponent},
+  {path: 'login', component: LoginComponent}
 ]
 
 
