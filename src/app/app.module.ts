@@ -7,6 +7,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './service/user.service';
 import {UserModule} from './registeration/user.module';
 import {AdminModule} from './admin/admin.module';
+import {MyRouteModule} from './router.module';
+import {HeaderModule} from './header/header.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import {AdminModule} from './admin/admin.module';
     NgbModule,
     HttpClientModule,
     UserModule,
-    AdminModule
+    AdminModule,
+    MyRouteModule,
+    HeaderModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
