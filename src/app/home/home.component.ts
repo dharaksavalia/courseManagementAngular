@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   page = {
-    title: 'Welcome to Course Management System',
+    title: 'Welcome to Course Manager',
     subtitle: '',
-    content: 'Some home content',
+    content: 'Developed by Dharak',
     image: 'assets/home.jpg'
 
   }
