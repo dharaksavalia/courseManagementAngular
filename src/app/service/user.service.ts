@@ -30,7 +30,10 @@ export class UserService {
   loginUsers(user) {
     return this.http.post<User>(URL + '/login', user , httpOptions);
   }
-  logtout(){
+  logtout() {
     return this.http.post<null>(URL + '/logout', {}, httpOptions)
+  }
+  isUserNameAvaiable(useraname: String): Observable<User> {
+    return this.http.get<User>( URL + '/' + useraname);
   }
 }

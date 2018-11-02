@@ -1,6 +1,8 @@
 import {Component, DoCheck, OnChanges, OnInit, SimpleChange, SimpleChanges} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../service/user.service';
+import {Observable} from 'rxjs';
+import {isUserNameAvaliable} from '../../validators/validator-name.validator';
 
 @Component({
   selector: 'app-registration',
@@ -11,7 +13,8 @@ export class RegistrationComponent implements OnInit, DoCheck {
   profileForm = new FormGroup(
     {
       username : new FormControl('', [ Validators.required
-        , Validators.pattern('^[a-zA-Z0-9]{4,12}$')]),
+        , Validators.pattern('^[a-zA-Z0-9]{4,12}$')],
+        [isUserNameAvaliable(this.userservice)]),
       password : new FormControl('', [ Validators.required,
       Validators.pattern('^[a-zA-Z0-9]{4,12}$')]),
       verifyPassword: new FormControl(''),
