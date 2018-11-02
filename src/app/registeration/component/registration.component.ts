@@ -3,6 +3,7 @@ import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/form
 import {UserService} from '../../service/user.service';
 import {Observable} from 'rxjs';
 import {isUserNameAvaliable} from '../../validators/validator-name.validator';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -24,12 +25,11 @@ export class RegistrationComponent implements OnInit, DoCheck {
       email : new FormControl(null,[ Validators.email]),
     }
   ,[ this.passwordMatch]);
-  constructor( private userservice: UserService) { }
+  constructor( private userservice: UserService, private route: Router) { }
   get username() {
     return this.profileForm.get('username');
   }
   passwordMatch ( group: FormGroup ): {[key: string]: any} | null {
-    console.log(group.get('password').value);
      const innerpassword = group.get('password').value;
      const verifyPassword = group.get('verifyPassword').value;
      if (innerpassword != null && verifyPassword != null) {
@@ -51,7 +51,7 @@ export class RegistrationComponent implements OnInit, DoCheck {
   }
   registerUser() {
     this.userservice.createUsers(this.profileForm.value)
-      .subscribe((response) => console.log(response));
+      .subscribe((response) => this.route.navigate (['home']));
   }
 
 }
