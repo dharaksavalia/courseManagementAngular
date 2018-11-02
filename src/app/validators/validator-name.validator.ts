@@ -4,9 +4,9 @@ import {catchError, map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 
 export function isUserNameAvaliable(userService: UserService): AsyncValidatorFn {
-  return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors=> {
+  return (control: AbstractControl): Observable < ValidationErrors | null > => {
     const username = control.value;
-    userService.isUserNameAvaiable(username).pipe(
+     return userService.isUserNameAvaiable(username).pipe(
       map(isTaken => (isTaken ? {usernameTaken: true} : null)),
       catchError(() => null)
     );

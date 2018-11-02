@@ -33,7 +33,7 @@ export class UserService {
   logtout() {
     return this.http.post<null>(URL + '/logout', {}, httpOptions)
   }
-  isUserNameAvaiable(useraname: String): Observable<User> {
-    return this.http.get<User>( URL + '/' + useraname);
+  isUserNameAvaiable(username: String): Observable<User> {
+    return this.http.get<User>( URL + '/user/' + username + '/username');
   }
 }

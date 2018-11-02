@@ -5,7 +5,9 @@
       <label for="usernameFld" class="col-sm-2 col-form-label">Username</label>
       <div class="col-10" >
         <input type="text" formControlName="username" class=" form-control" id="usernameFld" placeholder="Alice">
-        <small *ngIf="username.dirty && username.invalid" class="col-10 alert-danger">Required only alphabet with characters, numbers with minimum lenth of 4 and maximum of 12</small>
+        <small *ngIf="username.dirty && username.errors!=null && username.errors.pattern" class="col-10 alert-danger">Required only alphabet with characters, numbers with minimum lenth of 4 and maximum of 12</small>
+        <small *ngIf="username.dirty && username.errors!=null && username.errors.usernameTaken" class="col-10 alert-danger">Username not available</small>
+
       </div>
     </div>
     <div class="form-group row">
