@@ -30,4 +30,7 @@ export class UserService {
   loginUsers(user) {
     return this.http.post<User>(URL + '/login', user , httpOptions);
   }
+  logtout(){
+    return this.http.post<null>(URL + '/logout', {}, httpOptions)
+  }
 }

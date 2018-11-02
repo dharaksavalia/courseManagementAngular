@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../service/user.service';
 import {FormBuilder, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {nsend} from 'q';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,8 @@ import {Router} from '@angular/router';
 export class LoginComponent implements OnInit {
 
   constructor(private userService: UserService,
-              private fb: FormBuilder, private  router: Router) { }
+              private fb: FormBuilder, private  router: Router) {
+  }
   user = this.fb.group({
     username: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9]{4,12}$')]],
     password: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9]{4,12}$')]]
@@ -26,7 +28,8 @@ export class LoginComponent implements OnInit {
   }
   registerUser() {
     this.userService.loginUsers(this.user.value)
-      .subscribe(this.navigateAdmin,(error) => console.log());
+      .subscribe((response) => {this.navigateAdmin(response)},
+        (error) => console.log());
   }
   navigateAdmin(user) {
     sessionStorage.setItem('user', user);
