@@ -8,10 +8,7 @@
   <li class="nav-item">
     <a  routerLink="/admin" class="nav-link" routerLinkActive="active">Users</a>
   </li>
-  <li class="nav-item">
-    <a  routerLink="/login" class="nav-link" routerLinkActive="active">Login</a>
-  </li>
   <li class="nav-item navbar-toggler-right">
-    <a (click)="logout()" class="nav-link" routerLinkActive="active">LogOut</a>
+    <a (click)="logout()" class="nav-link" routerLinkActive="active">{{loginOrLogout}}</a>
   </li>
 </ul>
