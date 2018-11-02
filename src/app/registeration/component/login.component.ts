@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
   }
   navigateAdmin(user) {
     sessionStorage.setItem('user', user);
+    sessionStorage.setItem('username', user.username);
     this.router.navigate(['home']);
   }
 

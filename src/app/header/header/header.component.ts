@@ -1,6 +1,7 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {UserService} from '../../service/user.service';
+import {User} from '../../model/User';
 
 @Component({
   selector: 'app-header',
@@ -25,5 +26,9 @@ export class HeaderComponent implements OnInit {
       return 'Logout';
     }
   }
+  get username() {
+    return sessionStorage.getItem('username');
+    }
+
 
 }
