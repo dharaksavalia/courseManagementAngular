@@ -9,13 +9,17 @@ import {UserModule} from './registeration/user.module';
 import {HomeModule} from './home/home.module';
 import {HomeComponent} from './home/home.component';
 import {LoginComponent} from './registeration/component/login.component';
+import { CoursesComponent } from './course-manager/component/courses.component';
+import { CourseManagerModule } from './course-manager/course-manager.module';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'admin', component: AdminComponent},
   {path: 'registeration', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
-  {path: '', redirectTo : 'home', pathMatch: 'full' }
+  {path:'courses', component : CoursesComponent},
+  {path: '', redirectTo : 'home', pathMatch: 'full' },
+  {path:'**', component: HomeComponent}
 ];
 
 
@@ -28,7 +32,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     AdminModule,
     UserModule,
-    HomeModule
+    HomeModule,
+    CourseManagerModule
   ],
   providers: [],
 })
