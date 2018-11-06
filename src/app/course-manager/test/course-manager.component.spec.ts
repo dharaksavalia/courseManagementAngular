@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CourseManagerComponent } from './course-manager.component';
+import { CourseManagerComponent } from '../course-manager.component';
 
 describe('CourseManagerComponent', () => {
   let component: CourseManagerComponent;

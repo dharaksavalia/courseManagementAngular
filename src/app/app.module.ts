@@ -11,6 +11,7 @@ import {MyRouteModule} from './router.module';
 import {HeaderModule} from './header/header.module';
 import {RouterModule} from '@angular/router';
 import {HomeModule} from './home/home.module';
+import { AppSettings } from './app.setting';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import {HomeModule} from './home/home.module';
     RouterModule,
     HomeModule
   ],
-  providers: [UserService],
+  providers: [UserService, AppSettings],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
