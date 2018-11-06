@@ -10,13 +10,12 @@ export class AuthGaurdService implements CanActivate{
 
     canActivate(route: ActivatedRouteSnapshot){
         const expectedRole = route.data.role;
-        if(!AppSettings.isTokenExpired() && AppSettings.role == expectedRole ){
+        if(!AppSettings.role() && AppSettings.role == expectedRole ){
             return true;
         }else{
             this.router.navigate(['/login'])
             return false;
         }
-
     }
 }
 

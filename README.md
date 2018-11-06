@@ -22,6 +22,13 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Application being deployed in Heroku at below location
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+https://courseup.herokuapp.com/home
+
+## Purpose of Appliciation
+
+Create a professional course mangement system where faculty can create coruses add new contains, topic and component. Student can access the application and submit the assignment and read from very topic. 
+
+
+
