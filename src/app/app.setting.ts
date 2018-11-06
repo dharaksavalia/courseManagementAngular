@@ -24,10 +24,10 @@ export class AppSettings {
             let current_user:User = JSON.parse(sessionStorage.getItem('currentUser'));
             console.log('Current User'+current_user);
             if(current_user!=null){
-                this.user=current_user;
+                this._user=current_user;
             }
         }
-        return this.user;
+        return this._user;
     }
     get role():Role|null|undefined{
         return this._role;
@@ -39,9 +39,9 @@ export class AppSettings {
         this.user=user;
     }
     logout(){
-        sessionStorage.clear;
-        this._role = undefined;
-        this._user=undefined;
+        sessionStorage.clear();
+        this._role = null;
+        this._user=null;
     }
 
 

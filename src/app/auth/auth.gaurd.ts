@@ -6,9 +6,7 @@ import { AppSettings } from '../app.setting';
 export class AuthGaurdService implements CanActivate{
 
     constructor(private router:Router, private appSetting:AppSettings){
-
     }
-
     canActivate(route: ActivatedRouteSnapshot){
         const expectedRole = route.data.role;
         if(!this.appSetting.role && this.appSetting.role == expectedRole ){
@@ -19,7 +17,6 @@ export class AuthGaurdService implements CanActivate{
         }
     }
 }
-
 export enum Role{
     ADMIN,
     STUDENT,

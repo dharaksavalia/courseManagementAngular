@@ -11,13 +11,14 @@ import {HomeComponent} from './home/home.component';
 import {LoginComponent} from './registeration/component/login.component';
 import { CoursesComponent } from './course-manager/component/courses.component';
 import { CourseManagerModule } from './course-manager/course-manager.module';
+import { AuthGaurdService, Role } from './auth/auth.gaurd';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'admin', component: AdminComponent},
+  {path: 'admin', component: AdminComponent,data:{role:Role.ADMIN}},
   {path: 'registeration', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
-  {path:'courses', component : CoursesComponent},
+  {path:'courses', component : CoursesComponent,data:{role:Role.FACULTY}},
   {path: '', redirectTo : 'home', pathMatch: 'full' },
   {path:'**', component: HomeComponent}
 ];
@@ -35,6 +36,6 @@ const appRoutes: Routes = [
     HomeModule,
     CourseManagerModule
   ],
-  providers: [],
+  providers: [AuthGaurdService],
 })
 export class MyRouteModule { }

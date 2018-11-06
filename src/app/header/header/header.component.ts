@@ -1,7 +1,6 @@
-import {Component, OnChanges, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {UserService} from '../../service/user.service';
-import {User} from '../../model/User';
 import { AppSettings } from 'src/app/app.setting';
 
 @Component({
@@ -14,22 +13,29 @@ export class HeaderComponent implements OnInit {
     private app:AppSettings) { }
   ngOnInit() {}
   logout() {
+    this.app.logout();
      this.userService.logtout().subscribe(
-       (response) => (this.navigateToLogin()));
+       (response) => {
+         this.app.logout();
+         this.navigateToLogin();});
   }
   navigateToLogin() {
      this.app.logout();
      this.route.navigate( ['login']);
   }
   get loginOrLogout() {
-    if ( this.app.user === null) {
+    if ( this.app.user==null) {
+      console.log("loginOrLogout",this.app.user);
       return 'Login';
     } else {
       return 'Logout';
     }
   }
   get username() {
+    if(this.app.user!=null)
     return this.app.user.username;
+    else
+    return null;
     }
 
 
