@@ -9,9 +9,9 @@ const REST_ENDPOINT='https://webdev-mintex.herokuapp.com/api';
 export class AppSettings {
    
     _user : User|undefined;
-    _role:Role|undefined;
+    _role: Role|undefined;
 
-    public static getEndPoint= (): string => {
+    get getEndPoint(): string {
         return REST_ENDPOINT;
     }
     set user(user:User){
@@ -32,13 +32,13 @@ export class AppSettings {
     get role():Role|null|undefined{
         return this._role;
     }
-    static set role(role:Role){
+    set role(role:Role){
         this._role =role;
     }
-    public login = (user:User) =>{
+     login = (user:User) =>{
         this.user=user;
     }
-    public logout=()=>{
+    logout(){
         sessionStorage.clear;
         this._role = undefined;
         this._user=undefined;

@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {User} from 'src/app/model/User';
+import { Role } from 'src/app/auth/auth.gaurd';
 
 @Component({
   selector: 'app-new-user',
@@ -16,7 +17,7 @@ export class NewUserComponent implements OnInit {
     lastName : '',
     email: '',
     password: '',
-    role: ''
+    role: Role.STUDENT,
   }
   constructor() { }
   userPattern = '^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$';
