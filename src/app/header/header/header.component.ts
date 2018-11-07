@@ -25,7 +25,6 @@ export class HeaderComponent implements OnInit {
   }
   get loginOrLogout() {
     if ( this.app.user==null) {
-      console.log("loginOrLogout",this.app.user);
       return 'Login';
     } else {
       return 'Logout';

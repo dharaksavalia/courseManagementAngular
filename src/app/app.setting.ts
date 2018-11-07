@@ -22,7 +22,6 @@ export class AppSettings {
     get user() {
         if(this._user == null){
             let current_user:User = JSON.parse(sessionStorage.getItem('currentUser'));
-            console.log('Current User'+current_user);
             if(current_user!=null){
                 this._user=current_user;
             }

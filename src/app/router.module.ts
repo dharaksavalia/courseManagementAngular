@@ -15,12 +15,12 @@ import { AuthGaurdService, Role } from './auth/auth.gaurd';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'admin', component: AdminComponent,data:{role:Role.ADMIN}},
+  {path: 'admin', component: AdminComponent, data: {role: Role.ADMIN}},
   {path: 'registeration', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
-  {path:'courses', component : CoursesComponent,data:{role:Role.FACULTY}},
+  {path: 'course', component : CoursesComponent, data: {role: Role.FACULTY}},
   {path: '', redirectTo : 'home', pathMatch: 'full' },
-  {path:'**', component: HomeComponent}
+  {path: '**' , component: HomeComponent}
 ];
 
 

@@ -9,6 +9,6 @@ import { CoursesComponent } from './component/courses.component';
   imports: [
     CommonModule,
   ],
-  exports:[CourseManagerComponent]
+  exports:[CoursesComponent]
 })
 export class CourseManagerModule { }
