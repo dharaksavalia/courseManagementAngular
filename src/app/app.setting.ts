@@ -8,7 +8,7 @@ const REST_ENDPOINT='https://webdev-mintex.herokuapp.com/api';
 })
 export class AppSettings {
    
-    _user : User|undefined;
+    _user: User|undefined;
     _role: Role|undefined;
 
     get getEndPoint(): string {

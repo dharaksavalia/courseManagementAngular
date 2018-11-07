@@ -1,4 +1,4 @@
-import { Role } from "../auth/auth.gaurd";
+import { Role } from '../auth/auth.gaurd';
 
 export interface User {
   id?: number;
