@@ -1,6 +1,8 @@
-<nav class="navbar navbar-light bg-light align-items-center">
-  <form class="form-inline">
-    <input class="form-control col-8" type="search" placeholder="New Course Title" aria-label="Search">
+<nav class="navbar align-items-center">
+  <form (ngSubmit)="createNewCourse()" class="form-inline"  #heroForm="ngForm">
+    <input class="form-control" name="course" minlength="5"
+           [(ngModel)]="newCourse"
+           placeholder="New Course Title" aria-label="Search">
     <button class="btn -circle btn-danger fa fa-1.5x fa-plus" type="submit"></button>
   </form>
 </nav>
@@ -13,11 +15,11 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <th scope="row">1</th>
-    <td>Mark</td>
-    <td>Otto</td>
-    <td>@mdo</td>
+  <tr *ngFor="let course of courses">
+    <td>{{course.title}}</td>
+    <td></td>
+    <td>{{course.modified|date}}</td>
+    <td><i class="fa fa-2x fa-close" (click)="deleteCourse(course.id)"></i></td>
   </tr>
   </tbody>
 </table>
