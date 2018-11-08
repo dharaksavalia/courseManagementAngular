@@ -16,7 +16,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let course of courses">
-    <td>{{course.title}}</td>
+    <td routerLink={{course.id}}>{{course.title}}</td>
     <td></td>
     <td>{{course.modified|date}}</td>
     <td><i class="fa fa-2x fa-close" (click)="deleteCourse(course.id)"></i></td>

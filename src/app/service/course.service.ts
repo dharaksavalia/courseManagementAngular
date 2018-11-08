@@ -25,7 +25,9 @@ export class CourseService {
   deleteCourse(courseId: number): Observable<Course> {
     return this.http.delete<Course>(this.app.getEndPoint + '/course/' + courseId);
   }
-
+  getCourse(courseId: number): Observable<Course> {
+    return this.http.get<Course>(this.app.getEndPoint + '/course/' + courseId);
+  }
 
   createCourse(course: Course): Observable<Course> {
     return this.http.post<Course>(this.app.getEndPoint + '/course',

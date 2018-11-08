@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Course} from '../../model/course';
+import {CourseService} from '../../service/course.service';
 
 @Component({
   selector: 'app-module',
@@ -8,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class ModuleComponent implements OnInit {
 
   constructor() { }
+
   ngOnInit() {
   }
 
