@@ -7,7 +7,7 @@
   </li>
 </ul>
 <div class="row">
-  <div class="col-4"><app-module-list [myModules]="course.modules" ></app-module-list></div>
+  <div class="col-4"><app-module-list [myModules]="course.modules" (deleteModule)="deleteModule($event)" (newModule)="createModule($event)" ></app-module-list></div>
   <div class="col-8"><app-module></app-module></div>
 </div>
 

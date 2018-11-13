@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class UserService {
 
-  constructor(private http: HttpClient, private appSetting:AppSettings) { }
+  constructor(private http: HttpClient, private appSetting: AppSettings) { }
   createUsers(user): Observable<User> {
     console.log(user);
     return this.http.post<User>(this.appSetting.getEndPoint + '/user', user, httpOptions);
