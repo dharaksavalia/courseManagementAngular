@@ -14,6 +14,8 @@ export class ModuleListComponent implements OnInit {
   moduleEmitter: EventEmitter<string> = new EventEmitter<string>();
   @Output('deleteModule')
   dModule: EventEmitter<number> = new EventEmitter<number>();
+  @Output('selectedModule')
+  selectModule: EventEmitter<MyModule> = new EventEmitter<MyModule>();
   constructor() { }
   ngOnInit() {
   }
@@ -22,6 +24,10 @@ export class ModuleListComponent implements OnInit {
   }
   deleteModule(mId: number) {
     this.dModule.emit(mId);
+  }
+  selectModuleFunc(module: MyModule) {
+    console.log(module);
+    this.selectModule.emit(module);
   }
 
 }

@@ -5,7 +5,6 @@ import { CoursesComponent } from './component/courses.component';
 import {FormsModule} from '@angular/forms';
 import { ModuleComponent } from './component/module.component';
 import {RouterModule, Routes} from '@angular/router';
-import * as path from 'path';
 import {Role} from '../auth/auth.gaurd';
 import { CourseComponent } from './component/course.component';
 import { ModuleListComponent } from './component/module-list.component';

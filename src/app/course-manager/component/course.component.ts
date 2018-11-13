@@ -13,6 +13,7 @@ import {MyModule} from '../../model/module';
 export class CourseComponent implements OnInit {
   course: Course;
   courseId;
+  currentModule: MyModule;
   constructor(private activedRoutes: ActivatedRoute, private courseService: CourseService,
   private moduleService: MyModuleService ) { }
 
@@ -24,12 +25,11 @@ export class CourseComponent implements OnInit {
     this.courseService.getCourse(this.courseId)
       .subscribe((response) => {
         console.log(response);
-        this.course = response;} );
+        this.course = response; } );
   }
   createModule(newMoudle) {
     const newMoudleObject: MyModule = {
       title: newMoudle
-
     }
     this.moduleService.createModule(this.courseId, newMoudleObject)
       .subscribe((response) => {
@@ -41,5 +41,7 @@ export class CourseComponent implements OnInit {
       this.renderCourses();
     });
   }
-
+  selectModule(module) {
+    this.currentModule = module;
+  }
 }

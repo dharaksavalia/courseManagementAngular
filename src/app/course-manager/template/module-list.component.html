@@ -3,10 +3,10 @@
 <button type="submit" minlength="7"  class="btn btn-primary btn-block fa fa-plus"></button>
 </form>
 <ul class="list-group" *ngFor = "let module of modules">
-  <li class="form-control">
+  <li (click)="selectModuleFunc(module)" class="form-control" >
     {{module.title}}
     <span class="float-right">
-    <i (click)="deleteModule(module.id)"  class="fa fa-2x fa-trash"></i>
+    <i (click)="deleteModule(module.id)" class="fa fa-2x fa-trash"></i>
       </span>
   </li>
 </ul>

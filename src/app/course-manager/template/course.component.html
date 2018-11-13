@@ -1,13 +1,21 @@
 <ul class="nav  nav-tabs align-items-center">
   <li class="nav-item">
-    <span class="nav-link" >{{course.title}}</span>
+    <span *ngIf="course" class="nav-link" >{{course.title}}</span>
   </li>
   <li class="nav-item">
     <i class="nav-link active" >Pages</i>
   </li>
 </ul>
 <div class="row">
-  <div class="col-4"><app-module-list [myModules]="course.modules" (deleteModule)="deleteModule($event)" (newModule)="createModule($event)" ></app-module-list></div>
-  <div class="col-8"><app-module></app-module></div>
+  <div *ngIf="course" class="col-4"><app-module-list [myModules]="course.modules"
+                                      (deleteModule)="deleteModule($event)"
+                                      (newModule)="createModule($event)"
+                                      (selectModule)="selectModule($event)">
+
+  </app-module-list>
+  </div>
+  <div class="col-8">
+    <app-module [module]="currentModule"></app-module>
+  </div>
 </div>
 

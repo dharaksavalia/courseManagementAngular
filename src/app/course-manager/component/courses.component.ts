@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CourseService} from '../../service/course.service';
 import {Course} from '../../model/course';
-
 @Component({
   selector: 'app-courses',
   templateUrl: '../template/courses.component.html',
@@ -34,7 +33,6 @@ export class CoursesComponent implements OnInit {
       created: new Date(),
       modified: new Date()
     };
-    console.log(course);
     this.courseService.createCourse(course).subscribe( (response) => {
       this.courses.push(response);
     });
