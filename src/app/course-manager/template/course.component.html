@@ -10,7 +10,7 @@
   <div *ngIf="course" class="col-4"><app-module-list [myModules]="course.modules"
                                       (deleteModule)="deleteModule($event)"
                                       (newModule)="createModule($event)"
-                                      (selectModule)="selectModule($event)">
+                                      (selectedModule)="selectModule($event)">
 
   </app-module-list>
   </div>

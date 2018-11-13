@@ -42,6 +42,7 @@ export class CourseComponent implements OnInit {
     });
   }
   selectModule(module) {
+    console.log( 'Module' , module);
     this.currentModule = module;
   }
 }
