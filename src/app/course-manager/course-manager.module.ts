@@ -12,7 +12,10 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 
 const courseManagementRoutes: Routes = [
   { path: 'course',  component: CoursesComponent, data: {role: Role.FACULTY}},
-  { path: 'course/:id', component: CourseComponent, data: {role: Role.FACULTY}}
+  { path: 'course/:id', component: CourseComponent, data: {role: Role.FACULTY},
+  children: [
+    {path: 'module/:mid', component: ModuleComponent, data: {role:Role.FACULTY}}
+  ]}
 ];
 
 @NgModule({

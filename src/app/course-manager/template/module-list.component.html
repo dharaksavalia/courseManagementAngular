@@ -4,7 +4,7 @@
 </form>
 <div cdkDropList (cdkDropListDropped)="drop($event)">
 <ul class="list-group" cdkDrag *ngFor = "let module of modules">
-  <li (click)="selectModuleFunc(module)" class="form-control">
+  <li routerLink="module/{{module.id}}" (click)="selectModuleFunc(module)" class="form-control">
     {{module.title}}
     <span class="float-right">
     <i (click)="deleteModule(module.id)" class="fa fa-2x fa-trash"></i>

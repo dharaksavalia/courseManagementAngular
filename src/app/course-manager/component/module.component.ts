@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Course} from '../../model/course';
 import {CourseService} from '../../service/course.service';
 import {MyModule} from '../../model/module';
+import {MyModuleService} from '../../service/module.service';
 
 @Component({
   selector: 'app-module',
@@ -10,11 +11,13 @@ import {MyModule} from '../../model/module';
   styleUrls: ['../style/module.component.css']
 })
 export class ModuleComponent implements OnInit {
-  @Input('module')
   module: MyModule;
-  constructor() { }
+  constructor(private route: ActivatedRoute, private moduleService: MyModuleService) {
+    this.route.params.subscribe(params => console.log(params));
+  }
 
   ngOnInit() {
+
   }
 
 }
