@@ -22,19 +22,13 @@ export class ModuleListComponent implements OnInit {
   drop(event: CdkDragDrop<string[]>) {
     console.log(event.previousIndex, event.currentIndex);
     moveItemInArray(this.modules, event.previousIndex, event.currentIndex);
+    console.log(this.modules);
   }
   createNewModule() {
     this.moduleEmitter.emit(this.newModule);
   }
   deleteModule(mId: number) {
     this.dModule.emit(mId);
-  }
-  dropped(event: CdkDragDrop<MyModule[]>) {
-    moveItemInArray(
-      this.items,
-      event.previousIndex,
-      event.currentIndex
-    );
   }
 
   selectModuleFunc(module: MyModule) {
