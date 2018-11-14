@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MyModule} from '../../model/module';
-
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 @Component({
   selector: 'app-module-list',
   templateUrl: '../template/module-list.component.html',
@@ -19,12 +19,24 @@ export class ModuleListComponent implements OnInit {
   constructor() { }
   ngOnInit() {
   }
+  drop(event: CdkDragDrop<string[]>) {
+    console.log(event.previousIndex, event.currentIndex);
+    moveItemInArray(this.modules, event.previousIndex, event.currentIndex);
+  }
   createNewModule() {
     this.moduleEmitter.emit(this.newModule);
   }
   deleteModule(mId: number) {
     this.dModule.emit(mId);
   }
+  dropped(event: CdkDragDrop<MyModule[]>) {
+    moveItemInArray(
+      this.items,
+      event.previousIndex,
+      event.currentIndex
+    );
+  }
+
   selectModuleFunc(module: MyModule) {
     console.log(module);
     this.selectModule.emit(module);

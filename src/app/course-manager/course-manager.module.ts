@@ -8,6 +8,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {Role} from '../auth/auth.gaurd';
 import { CourseComponent } from './component/course.component';
 import { ModuleListComponent } from './component/module-list.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 const courseManagementRoutes: Routes = [
   { path: 'course',  component: CoursesComponent, data: {role: Role.FACULTY}},
@@ -17,6 +18,7 @@ const courseManagementRoutes: Routes = [
 @NgModule({
   declarations: [CourseManagerComponent, CoursesComponent, ModuleComponent, CourseComponent, ModuleListComponent],
   imports: [
+    DragDropModule,
     CommonModule,
     FormsModule,
     RouterModule.forRoot(courseManagementRoutes)
