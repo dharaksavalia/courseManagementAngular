@@ -1,7 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Course} from '../../model/course';
-import {CourseService} from '../../service/course.service';
 import {MyModule} from '../../model/module';
 import {MyModuleService} from '../../service/module.service';
 
@@ -13,11 +11,18 @@ import {MyModuleService} from '../../service/module.service';
 export class ModuleComponent implements OnInit {
   module: MyModule;
   constructor(private route: ActivatedRoute, private moduleService: MyModuleService) {
-    this.route.params.subscribe(params => console.log(params));
+    this.route.params.subscribe(params => {
+      this.getModule(params['mId']);
+    });
   }
-
+  getModule(mId) {
+    this.moduleService.getModule(mId)
+      .subscribe((response) => {
+        this.module = response;
+        console.log(this.module);
+      });
+  }
   ngOnInit() {
-
   }
 
 }

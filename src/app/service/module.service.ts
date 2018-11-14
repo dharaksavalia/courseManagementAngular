@@ -3,6 +3,7 @@ import {AppSettings} from '../app.setting';
 // @ts-ignore
 import {Injectable} from '@angular/core';
 import {MyModule} from '../model/module';
+import {Observable} from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders(
@@ -24,6 +25,11 @@ export class MyModuleService {
   }
   deleteModule(courseId: number) {
     return this.http.delete<MyModule>(this.appSetting.getEndPoint + '/module/' + courseId);
+  }
+  getModule(mId: number): Observable<MyModule> {
+    return this.http.get<MyModule>(
+      this.appSetting.getEndPoint + '/module/' + mId
+    );
   }
 }
 
