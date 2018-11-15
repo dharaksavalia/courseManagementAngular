@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {MyModule} from '../../model/module';
-import {MyModuleService} from '../../service/module.service';
+import {LessonService} from '../../service/lesson.service';
+import {Lesson} from '../../model/Lesson';
 
 @Component({
   selector: 'app-module',
@@ -9,20 +9,33 @@ import {MyModuleService} from '../../service/module.service';
   styleUrls: ['../style/module.component.css']
 })
 export class ModuleComponent implements OnInit {
-  module: MyModule;
-  constructor(private route: ActivatedRoute, private moduleService: MyModuleService) {
+  mId: number;
+  lessons: Lesson[];
+  newLesson: string;
+  constructor(private route: ActivatedRoute, private lessonService: LessonService) {
     this.route.params.subscribe(params => {
-      this.getModule(params['mId']);
+      this.getLesson(params['mId']);
     });
   }
-  getModule(mId) {
-    this.moduleService.getModule(mId)
+  getLesson(mId) {
+    this.mId = mId;
+    this.lessonService.getLessonsOfModule(mId)
       .subscribe((response) => {
-        this.module = response;
-        console.log(this.module);
+        console.log(response);
+        this.lessons = response;
       });
   }
   ngOnInit() {
+  }
+  createNewLesson() {
+    const lesson = {
+      title: this.newLesson;
+    };
+    this.lessonService.createNewLesson(this.mId, lesson)
+      .subscribe((response) => {
+        console.log(response);
+        this.lessons.push(response);
+      });
   }
 
 }

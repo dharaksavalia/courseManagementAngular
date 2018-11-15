@@ -1,8 +1,10 @@
-<ul class="nav nav-pills">
-  <li *ngFor="let lesson of module.lessons" class="nav-item">
-    <a class="nav-link active" href="#">{{lesson}}</a>
+<ul class="nav nav-pills nav-fill">
+  <li *ngFor="let lesson of lessons" class="nav-item">
+    <a class="fa-border nav-link ">{{lesson.title}}</a>
   </li>
-  <li class="nav-item">
-    <i class="nav-link disabled" href="#">Disabled</i>
-  </li>
+  <form class="form-inline" #newForm ="ngForm">
+    <input  name="newLesson" class="nav-item fa-border"
+            placeholder="new lesson" [(ngModel)]="newLesson" >
+    <i class="fa fa-2x fa-plus" (click)="createNewLesson()"></i>
+  </form>
 </ul>
