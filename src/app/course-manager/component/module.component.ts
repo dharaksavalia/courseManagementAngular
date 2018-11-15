@@ -29,7 +29,7 @@ export class ModuleComponent implements OnInit {
   }
   createNewLesson() {
     const lesson = {
-      title: this.newLesson;
+      title: this.newLesson
     };
     this.lessonService.createNewLesson(this.mId, lesson)
       .subscribe((response) => {
